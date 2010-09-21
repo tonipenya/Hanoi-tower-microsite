@@ -13,6 +13,7 @@ body {
     height:325px;
     text-align:center;
     background: #333;
+    visibility: hidden;
 }
 
 .hanoi_peg {
@@ -22,13 +23,21 @@ body {
     display:inline-block;
 }
 
-#peg_social {
+#twitter {
+    background: url("images/ui-bg_gloss-wave_35_67f9f7_500x100.png") repeat-x scroll 50% 50% #67f9f7;
+    border-color: #47d9d7;
 }
 
-#peg_code {
+#twitter{
 }
 
-#peg_sport {
+#googleprofile{
+}
+
+#linkedin{
+}
+
+#couchsurfing{
 }
 
 .hanoi_disk {

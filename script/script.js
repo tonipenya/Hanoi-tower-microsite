@@ -8,6 +8,8 @@ var pegs = {};
 var lastGameCompletePegId;
 
 $(function() {
+    $('#hanoi').css('visibility', 'visible');
+
     // Define dragables
     $(".hanoi_disk").draggable({
         revert: "invalid"
