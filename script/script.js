@@ -2,8 +2,10 @@
  * TODO:
  * - Animation for droping.
  * - Pass ids to functions instead of pegs and discs. (not sure)
+ * - Change size, margins and position of #hanoi according to the ammount of .hanoi-disks
  **/
 var pegs = {};
+var startingPegId = 'peg1';
 
 $(function() {
     // Define dragables
@@ -20,7 +22,6 @@ $(function() {
         accept: setAcceptCriterea
     });
 
-    printDebug();
 });
 
 function initPegs() {
@@ -31,18 +32,18 @@ function initPegs() {
 }
 
 function initDisks() {
-    $(".hanoi_disk").each(function() {
+    $($(".hanoi_disk").get().reverse()).each(function() {
         var diskId=$(this).attr('id');
-        pegs['peg1'][diskId] = $(this);
+        pegs[startingPegId][diskId] = $(this);
 
         placeDiskOnPeg($(this), $('#peg1'));
     });
 }
 
 function resizeDisks() {
-    var size = 180;
-    var step = 20;
-    $(".hanoi_disk").each(function() {
+    var size = 270;
+    var step = 25;
+    $($(".hanoi_disk").get().reverse()).each(function() {
         $(this).width(size);
         size -= step;
     });
@@ -58,7 +59,7 @@ function processDiskDrop(event, ui) {
     addDiskToPeg(disk, peg);
     placeDiskOnPeg(disk, droppable);
 
-    printDebug();
+    checkGameEnd();
 }
 
 function setAcceptCriterea(dragable) {
@@ -90,10 +91,10 @@ function placeDiskOnPeg(disk, droppable) {
     var top = pegBottom;
 
     for (var diskKey in peg) {
-        top-= peg[diskKey].height();
+        top-= peg[diskKey].outerHeight();
     }
 
-    var left = droppable.offset().left + (droppable.width()-disk.width())/2;
+    var left = droppable.offset().left + (droppable.width()-disk.outerWidth())/2;
 
     disk.offset({
         top:top,
@@ -131,16 +132,26 @@ function isOnPeg(disk, peg) {
     return diskId in peg;
 }
 
-function printDebug() {
-    $('#debug').remove();
-    $('body').append('<div id="debug"/>');
-
+function checkGameEnd() {
+    var elementsInPeg = false;
+    var finalPegId = startingPegId;
 
     for (var pegKey in pegs) {
-        $('#debug').append(pegKey+':<br/>');
+        var peg = pegs[pegKey];
 
-        for(var diskKey in pegs[pegKey]) {
-            $('#debug').append(diskKey + ': ' + pegs[pegKey][diskKey].width()+ '<br/>');
+        for (var diskKey in peg) {
+            if(elementsInPeg) {
+                return;
+            }
+
+            elementsInPeg = true;
+            finalPegId = pegKey;
+            break;
         }
+    }
+
+    if(finalPegId != startingPegId) {
+        alert('Yay, You made it!');
+        startingPegId = finalPegId;
     }
 }
