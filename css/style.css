@@ -3,7 +3,7 @@ body {
     color: white;
 }
 
-.header_one {
+.header_one, .header_one:visited {
     font-family:arial,helvetica,sans-serif;
     font-size:4em;
     font-weight:bold;
