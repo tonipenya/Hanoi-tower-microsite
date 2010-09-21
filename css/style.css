@@ -37,4 +37,8 @@ body {
     padding: 5px 0;
 }
 
+.hanoi_disk a {
+    text-decoration: none;
+}
+
 
