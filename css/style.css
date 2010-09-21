@@ -3,9 +3,9 @@ body {
     color: white;
 }
 
-h1 a{
+.header a{
     font-family:arial,helvetica,sans-serif;
-    font-size:2em;
+    font-size:4em;
     font-weight:bold;
     color:white;
 }
