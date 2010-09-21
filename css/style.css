@@ -1,0 +1,41 @@
+body {
+    background-color:#202020;
+    color: white;
+}
+
+#hanoi{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left:-300px;
+    width:600px;
+    height:400px;
+    text-align:center;
+}
+
+.hanoi_peg{
+    height:100%;
+    width:30%;
+    border:1px solid;
+    display:inline-block;
+}
+
+#peg0{
+    border-color:red;
+}
+
+#peg1{
+    border-color:green;
+}
+
+#peg2{
+    border-color:blue;
+}
+
+.hanoi_disk {
+    width:150px;
+    text-align: center;
+}
+
+

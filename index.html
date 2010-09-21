@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- TODO:
+- Display all info even without javascript
+- Drop within an area puts the block 'on top' of the pile
+- Control 'size of block' for dropping
+- Give a 'yay, you made it' message when user completes game
+- When an element removed from it's column reallocate other elements in column.
+- Center hanoi_blocks
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="script/jquery-1.4.2.min.js" type="text/javascript"></script>
+        <script src="script/jquery-ui-1.8.5.custom.min.js" type="text/javascript"></script>
+        <script src="script/script.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="hanoi">
+            <div id="peg0" class="hanoi_peg"></div>
+            <div id="peg1" class="hanoi_peg"></div>
+            <div id="peg2" class="hanoi_peg"></div>
+        </div>
+        <div id="twitter" class="hanoi_disk ui-widget-content"><a href="http://twitter.com/tonipenya">twitter</a></div>
+        <div id="github" class="hanoi_disk ui-widget-content"><a href="http://github.com/tonipenya/">github</a></div>
+        <div id="linkedIn" class="hanoi_disk ui-widget-content"><a href="http://hk.linkedin.com/in/tonipenya">linkedIn</a></div>
+
+        <div id="debug"/>
+    </body>
+</html>
