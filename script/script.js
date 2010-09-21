@@ -5,7 +5,8 @@
  * - Change size, margins and position of #hanoi according to the ammount of .hanoi-disks
  **/
 var pegs = {};
-var lastGameCompletePegId;
+var defaultPeg = 'peg1';
+var lastGameCompletePegId = defaultPeg;
 
 $(function() {
     $('#hanoi').css('visibility', 'visible');
@@ -14,14 +15,15 @@ $(function() {
     $(".hanoi_disk").draggable({
         revert: "invalid"
     });
-	
+
     initPegs();
     resizeDisks();
     initDisks();
 
     $(".hanoi_peg").droppable({
         drop: processDiskDrop,
-        accept: setAcceptCriterea
+        accept: isAcceptable,
+        tolerance: 'touch'
     });
 
 });
@@ -35,11 +37,10 @@ function initPegs() {
 
 function initDisks() {
     $($(".hanoi_disk").get().reverse()).each(function() {
-        var pegId = 'peg_' + $(this).parent().attr('id');
         var diskId=$(this).attr('id');
 
-        pegs[pegId][diskId] = $(this);
-        placeDiskOnPeg($(this), $('#'+pegId));
+        pegs[defaultPeg][diskId] = $(this);
+        placeDiskOnPeg($(this), $('#'+defaultPeg));
     });
 }
 
@@ -65,7 +66,7 @@ function processDiskDrop(event, ui) {
     checkGameEnd();
 }
 
-function setAcceptCriterea(dragable) {
+function isAcceptable(dragable) {
     var pegId = $(this).attr('id');
     var peg = pegs[pegId];
 

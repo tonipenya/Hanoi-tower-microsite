@@ -3,51 +3,100 @@ body {
     color: white;
 }
 
+h1 a{
+    font-family:arial,helvetica,sans-serif;
+    font-size:2em;
+    font-weight:bold;
+    color:white;
+}
+
+a {
+    text-decoration: none;
+}
+
 #hanoi {
     position: absolute;
     top: 50%;
     left: 50%;
     margin-top: -177px;
-    margin-left:-450px;
-    width:900px;
-    height:325px;
+    margin-left:-425px;
+    width:850px;
+    height:275px;
     text-align:center;
     background: #333;
     visibility: hidden;
 }
 
 .hanoi_peg {
-    height:100%;
-    width:30%;
-/*    border:1px solid;*/
+    height:90%;
+    width:4%;
+    margin: 27px 14%;
+    background: gray;
     display:inline-block;
-}
-
-#twitter {
-    background: url("images/ui-bg_gloss-wave_35_67f9f7_500x100.png") repeat-x scroll 50% 50% #67f9f7;
-    border-color: #47d9d7;
-}
-
-#twitter{
-}
-
-#googleprofile{
-}
-
-#linkedin{
-}
-
-#couchsurfing{
+    bottom: 0px;
+    position: relative;
 }
 
 .hanoi_disk {
     width:150px;
     text-align: center;
     padding: 5px 0;
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    border:1px solid;
 }
 
 .hanoi_disk a {
-    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
+#twitter {
+    background-image: url("images/icon/twitter.png");
+    background-color: #8EC1DA;
+    border-color: #5e91ba;
+}
 
+#linkedin {
+    background-image: url("images/icon/linkedin.png");
+    background-color: #F3F3F3;
+    border-color: #c3c3c3;
+}
+
+#linkedin a{
+    color: #555;
+}
+
+#couchsurfing {
+    background-image: url("images/icon/couchsurfing.png");
+    background-color: #F9B564;
+    border-color: #d98534;
+}
+
+#github {
+    background-image: url("images/icon/github.png");
+    background-color: #FAFAFA;
+    border-color: #cacaca;
+}
+
+#github a{
+    color:#555;
+}
+
+#stackoverflow {
+    background-image: url("images/icon/stackoverflow.png");
+    background-color: #F4A83D;
+    border-color: #d4780d;
+}
+
+#buddyrunner {
+    background-image: url("images/icon/buddyrunner.png");
+    background-color: #1C61B2;
+    border-color: #003182;
+}
+
+#bcnmpl {
+    background-image: url("images/icon/bcnmpl.png");
+    background-color: #222;
+    border-color: #000;
+}
