@@ -5,7 +5,7 @@
  * - Change size, margins and position of #hanoi according to the ammount of .hanoi-disks
  **/
 var pegs = {};
-var startingPegId = 'peg1';
+var lastGameCompletePegId;
 
 $(function() {
     // Define dragables
@@ -33,10 +33,11 @@ function initPegs() {
 
 function initDisks() {
     $($(".hanoi_disk").get().reverse()).each(function() {
+        var pegId = 'peg_' + $(this).parent().attr('id');
         var diskId=$(this).attr('id');
-        pegs[startingPegId][diskId] = $(this);
 
-        placeDiskOnPeg($(this), $('#peg1'));
+        pegs[pegId][diskId] = $(this);
+        placeDiskOnPeg($(this), $('#'+pegId));
     });
 }
 
@@ -134,7 +135,7 @@ function isOnPeg(disk, peg) {
 
 function checkGameEnd() {
     var elementsInPeg = false;
-    var finalPegId = startingPegId;
+    var finalPegId;
 
     for (var pegKey in pegs) {
         var peg = pegs[pegKey];
@@ -150,8 +151,8 @@ function checkGameEnd() {
         }
     }
 
-    if(finalPegId != startingPegId) {
+    if(finalPegId != lastGameCompletePegId) {
         alert('Yay, You made it!');
-        startingPegId = finalPegId;
+        lastGameCompletePegId = finalPegId;
     }
 }

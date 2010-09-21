@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <!-- TODO:
 - Display all info even without javascript
-- Drop within an area puts the block 'on top' of the pile
-- Control 'size of block' for dropping
 - Give a 'yay, you made it' message when user completes game
-- When an element removed from it's column reallocate other elements in column.
-- Center hanoi_blocks
+- <a> alt attributes
 -->
 <html>
     <head>
@@ -17,14 +14,39 @@
     </head>
     <body>
         <div id="hanoi">
-            <div id="peg0" class="hanoi_peg"></div>
-            <div id="peg1" class="hanoi_peg"></div>
-            <div id="peg2" class="hanoi_peg"></div>
+            <div id="peg_social" class="hanoi_peg"></div>
+            <div id="peg_code" class="hanoi_peg"></div>
+            <div id="peg_sport" class="hanoi_peg"></div>
         </div>
-        <div id="twitter" class="hanoi_disk ui-widget-content"><a href="http://twitter.com/tonipenya">twitter</a></div>
-        <div id="github" class="hanoi_disk ui-widget-content"><a href="http://github.com/tonipenya/">github</a></div>
-        <div id="linkedIn" class="hanoi_disk ui-widget-content"><a href="http://hk.linkedin.com/in/tonipenya">linkedIn</a></div>
-
-        <div id="debug"/>
+        <div id="social">
+            <div id="twitter" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://twitter.com/tonipenya">twitter</a>
+            </div>
+            <div id="googleprofile" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://www.google.com/profiles/toni.penya.alba">Profile</a>
+            </div>
+            <div id="linkedin" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://hk.linkedin.com/in/tonipenya">LinkedIn</a>
+            </div>
+            <div id="couchsurfing" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://www.couchsurfing.org/people/toni.penya/">CouchSurfing</a>
+            </div>
+        </div>
+        <div id="code">
+            <div id="github" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://github.com/tonipenya/">github</a>
+            </div>
+            <div id="stackoverflow" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://stackoverflow.com/users/297299/toni-penya">StackOverflow</a>
+            </div>
+        </div>
+        <div id="sport">
+            <div id="buddyrunner" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://www.buddyrunner.com/henloke">Buddy Runner</a>
+            </div>
+            <div id="bcnmpl" class="hanoi_disk ui-widget-header ui-corner-all">
+                <a href="http://barcelonamontpellier.wordpress.com/">Barcelona - Montpellier</a>
+            </div>
+        </div>
     </body>
 </html>
