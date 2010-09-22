@@ -7,13 +7,12 @@ body {
     top:0.4em;
     margin-left:-2.2em;
     padding:0.2em;
-    color:white;
     background-color:black;
     font-size:2em;
     font-family:Deluxe,eurostyle,arial,helvetica,sans-serif;
 }
 
-a {
+a, a:visited {
     color:white;
     text-decoration: none;
 }
