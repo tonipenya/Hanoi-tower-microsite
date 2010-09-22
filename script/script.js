@@ -12,15 +12,15 @@ $(function() {
     $('#hanoi').css('visibility', 'visible');
 
     // Define dragables
-    $(".hanoi_disk").draggable({
-        revert: "invalid"
+    $('.hanoi_disk').draggable({
+        revert: 'invalid'
     });
 
     initPegs();
     resizeDisks();
     initDisks();
 
-    $(".hanoi_peg").droppable({
+    $('.hanoi_peg').droppable({
         drop: processDiskDrop,
         accept: isAcceptable,
         tolerance: 'touch'
@@ -29,14 +29,14 @@ $(function() {
 });
 
 function initPegs() {
-    $(".hanoi_peg").each(function() {
+    $('.hanoi_peg').each(function() {
         var pegId = $(this).attr('id');
         pegs[pegId] = {};
     });
 }
 
 function initDisks() {
-    $($(".hanoi_disk").get().reverse()).each(function() {
+    $($('.hanoi_disk').get().reverse()).each(function() {
         var disk = $(this);
         var diskId= disk.attr('id');
 
@@ -49,7 +49,7 @@ function initDisks() {
 function resizeDisks() {
     var size = 270;
     var step = 25;
-    $($(".hanoi_disk").get().reverse()).each(function() {
+    $($('.hanoi_disk').get().reverse()).each(function() {
         $(this).width(size);
         size -= step;
     });
@@ -97,7 +97,6 @@ function moveDiskToPeg(disk, droppable) {
     disk.animate(findNewOffset(disk, droppable), 'fast');
 }
 
-
 function findNewOffset(disk, droppable) {
     var pegId = droppable.attr('id');
     var peg = pegs[pegId];
@@ -113,7 +112,6 @@ function findNewOffset(disk, droppable) {
 
     return {top:top, left:left};
 }
-
 
 function isOnTop(disk) {
     for (var pegKey in pegs) {
