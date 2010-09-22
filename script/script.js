@@ -44,7 +44,6 @@ function initDisks() {
         var pegId = 'peg'+i;
 
         pegs[pegId][diskId] = disk;
-        disk.css('position', 'absolute');
         placeDiskOnPeg(disk, $('#'+pegId));
 
         i++;
@@ -69,7 +68,7 @@ function processDiskDrop(event, ui) {
 
     removeDiskFromPegs(disk);
     addDiskToPeg(disk, peg);
-    moveDiskToPeg(disk, droppable);
+    placeDiskOnPeg(disk, droppable);
 
     checkGameEnd();
 }
@@ -97,10 +96,6 @@ function addDiskToPeg(disk, peg) {
 
 function placeDiskOnPeg(disk, droppable) {
     disk.offset(findNewOffset(disk,droppable));
-}
-
-function moveDiskToPeg(disk, droppable) {
-    disk.animate(findNewOffset(disk, droppable), 'fast');
 }
 
 function findNewOffset(disk, droppable) {
