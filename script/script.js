@@ -1,11 +1,10 @@
 /*
  * TODO:
- * - Animation for droping.
  * - Pass ids to functions instead of pegs and discs. (not sure)
  * - Change size, margins and position of #hanoi according to the ammount of .hanoi-disks
  **/
 var pegs = {};
-var defaultPeg = 'peg1';
+var defaultPeg = '';
 var lastGameCompletePegId = defaultPeg;
 
 $(function() {
@@ -36,13 +35,20 @@ function initPegs() {
 }
 
 function initDisks() {
+    var i = 1;
+    var numberOfPegs = $('.hanoi_peg').size();
+
     $($('.hanoi_disk').get().reverse()).each(function() {
         var disk = $(this);
         var diskId= disk.attr('id');
+        var pegId = 'peg'+i;
 
-        pegs[defaultPeg][diskId] = disk;
+        pegs[pegId][diskId] = disk;
         disk.css('position', 'absolute');
-        placeDiskOnPeg(disk, $('#'+defaultPeg));
+        placeDiskOnPeg(disk, $('#'+pegId));
+
+        i++;
+        i= i%numberOfPegs;
     });
 }
 
