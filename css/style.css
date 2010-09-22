@@ -1,16 +1,19 @@
 body {
-    background-color:#202020;
-    color: white;
+    background-color:#000;
 }
 
 .header_one, .header_one:visited {
-    font-family:arial,helvetica,sans-serif;
-    font-size:4em;
-    font-weight:bold;
-    color:white;
+    position:relative;
+    top:0.4em;
+    margin-left:-2.2em;
+    padding:0.2em;
+    background-color:black;
+    font-size:2em;
+    font-family:Deluxe,eurostyle,arial,helvetica,sans-serif;
 }
 
 a {
+    color:white;
     text-decoration: none;
 }
 
@@ -18,20 +21,28 @@ a {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -177px;
-    margin-left:-425px;
+    margin-top: -220px;
+    margin-left:-449px;
+    visibility: hidden;
+}
+
+#game_frame{
+    padding: 18px;
+    border: 3px solid white;
+}
+
+#game {
     width:850px;
     height:275px;
     text-align:center;
-    background: #333;
-    visibility: hidden;
+    background: #fff;
 }
 
 .hanoi_peg {
     height:90%;
     width:4%;
-    margin: 27px 14%;
-    background: gray;
+    margin: 28px 14%;
+    background: #b30000;
     display:inline-block;
     bottom: 0px;
     position: relative;
@@ -47,8 +58,9 @@ a {
 }
 
 .hanoi_disk a {
-    color: white;
     font-weight: bold;
+    font-family:"Courier new", courier, monospace;
+    margin-left: 5px;
 }
 
 #twitter {
