@@ -37,10 +37,12 @@ function initPegs() {
 
 function initDisks() {
     $($(".hanoi_disk").get().reverse()).each(function() {
-        var diskId=$(this).attr('id');
+        var disk = $(this);
+        var diskId= disk.attr('id');
 
-        pegs[defaultPeg][diskId] = $(this);
-        placeDiskOnPeg($(this), $('#'+defaultPeg));
+        pegs[defaultPeg][diskId] = disk;
+        disk.css('position', 'absolute');
+        placeDiskOnPeg(disk, $('#'+defaultPeg));
     });
 }
 
@@ -61,7 +63,7 @@ function processDiskDrop(event, ui) {
 
     removeDiskFromPegs(disk);
     addDiskToPeg(disk, peg);
-    placeDiskOnPeg(disk, droppable);
+    moveDiskToPeg(disk, droppable);
 
     checkGameEnd();
 }
@@ -88,6 +90,15 @@ function addDiskToPeg(disk, peg) {
 }
 
 function placeDiskOnPeg(disk, droppable) {
+    disk.offset(findNewOffset(disk,droppable));
+}
+
+function moveDiskToPeg(disk, droppable) {
+    disk.animate(findNewOffset(disk, droppable), 'fast');
+}
+
+
+function findNewOffset(disk, droppable) {
     var pegId = droppable.attr('id');
     var peg = pegs[pegId];
     var pegBottom = droppable.offset().top + droppable.height();
@@ -100,11 +111,9 @@ function placeDiskOnPeg(disk, droppable) {
 
     var left = droppable.offset().left + (droppable.width()-disk.outerWidth())/2;
 
-    disk.offset({
-        top:top,
-        left:left
-    });
+    return {top:top, left:left};
 }
+
 
 function isOnTop(disk) {
     for (var pegKey in pegs) {

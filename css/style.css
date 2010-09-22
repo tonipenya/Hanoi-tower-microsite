@@ -38,7 +38,7 @@ a {
 }
 
 .hanoi_disk {
-    width:150px;
+    width:300px;
     text-align: center;
     padding: 5px 0;
     background-repeat: no-repeat;
