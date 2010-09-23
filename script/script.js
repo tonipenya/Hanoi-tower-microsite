@@ -35,7 +35,7 @@ function initPegs() {
 }
 
 function initDisks() {
-    var i = 1;
+    var i = 2;
     var numberOfPegs = $('.hanoi_peg').size();
 
     $($('.hanoi_disk').get().reverse()).each(function() {
@@ -145,25 +145,32 @@ function isOnPeg(disk, peg) {
 }
 
 function checkGameEnd() {
-    var elementsInPeg = false;
-    var finalPegId;
+    var candidate = null;
 
     for (var pegKey in pegs) {
         var peg = pegs[pegKey];
 
-        for (var diskKey in peg) {
-            if(elementsInPeg) {
-                return;
-            }
+        if(isPegEmpty(peg)) continue;
 
-            elementsInPeg = true;
-            finalPegId = pegKey;
-            break;
+        if (candidate == null) {
+            candidate = pegKey;
+        } else {
+            return;
         }
     }
 
-    if(finalPegId != lastGameCompletePegId) {
+    if (candidate != lastGameCompletePegId) {
+        lastGameCompletePegId = candidate;
         alert('Yay, You made it!');
-        lastGameCompletePegId = finalPegId;
     }
+}
+
+function isPegEmpty(peg) {
+    var size = 0;
+
+    for (var key in peg) {
+        if (peg.hasOwnProperty(key)) size++;
+    }
+    
+    return size == 0;
 }
