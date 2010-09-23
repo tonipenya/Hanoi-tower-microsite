@@ -35,7 +35,7 @@ function initPegs() {
 }
 
 function initDisks() {
-    var i = 1;
+    var i = 2;
     var numberOfPegs = $('.hanoi_peg').size();
 
     $($('.hanoi_disk').get().reverse()).each(function() {
