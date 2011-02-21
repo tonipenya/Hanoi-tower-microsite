@@ -108,6 +108,12 @@ a, a:visited {
     color: #555;
 }
 
+#mendeley {
+    background-image: url("images/icon/mendeley.png");
+    background-color: #9c0624;
+    border-color: #77061b;
+}
+
 #twitter {
     background-image: url("images/icon/twitter.png");
     background-color: #64cffc;
