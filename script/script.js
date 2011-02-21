@@ -52,7 +52,7 @@ function initDisks() {
 }
 
 function resizeDisks() {
-    var size = 270;
+    var size = 290;
     var step = 25;
     $($('.hanoi_disk').get().reverse()).each(function() {
         $(this).width(size);
