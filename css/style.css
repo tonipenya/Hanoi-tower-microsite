@@ -82,6 +82,12 @@ a, a:visited {
     border-color: #d98534;
 }
 
+#endomondo {
+    background-image: url("images/icon/endomondo.png");
+    background-color: #79a800;
+    border-color: #5e8300;
+}
+
 #github {
     background-image: url("images/icon/github.png");
     background-color: #fafafa;
